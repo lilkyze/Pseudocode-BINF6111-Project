@@ -1,0 +1,54 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+############################
+## Pseudocode for Project ##
+############################
+
+
+#Ask user for reference sequence(list filetype?)
+#Ask user for bisulfite treated sequence
+
+#store files in variable
+#prepare files
+	#remove whitespace
+	#remove newlines
+	#join into one string
+	#explode string into an array
+	
+#Search for CG regions
+	#foreach /C/ {
+	#	if( /GC/ | /CG/){}
+	# remove duplicated regions (i.e. GCG)
+	# 	else {}
+	# }
+	
+#Store and report position of CG regions (file output)
+
+##Compare arrays using Perl 5.1's Smartmatch Operator
+
+#Find CG regions on reference genome array
+	#store Cs in an array that has empty elements for locations where there is not a C
+		#for example:
+			#reference-   AAATCCAGCTTTTACGAAA
+			#array of Cs- ********C*****C****, where * indicates whitespace
+	#Match location of CG regions from reference genome to the bisulfite treated genome
+		#clear out non-matching regions (?)
+		#for example:
+			#reference genome		AAATCCAGCTTTTACGAAA
+			#reference C regions	********C*****C****
+			#bisulfite genome		AAATTTAGTTTTTACGAAA
+			#matched bisulfite		********T*****C****
+			
+	
+	#Report Results of comparison in text file format? Spreadsheet?
+	
+			
+
+
+
+
+
+
+
