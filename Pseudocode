@@ -40,6 +40,22 @@ print $seq2;
 
 my @seq1 = split('',$seq1);
 my @seq2 = split('',$seq2);	
+my @CGarea;
+my $k=0;
+
+for (my $i=0; $i < scalar (@seq1); $i++)
+{
+    if ($seq1[$i] eq "C" && $seq2[$i] eq "C")
+    {$CGarea[$k] = $i;$k++;
+    }
+}
+
+my $CG = join (',',@CGarea);
+print "\n";
+print $CG;
+print "\n";
+
+
 #Search for CG regions
 	#foreach /C/ {
 	#	if( /GC/ | /CG/){}
@@ -68,7 +84,7 @@ my @seq2 = split('',$seq2);
 	#Report Results of comparison in text file format? Spreadsheet?
 	
 			
-
+exit;
 
 
 
