@@ -6,9 +6,28 @@ use strict;
 ## Pseudocode for Project ##
 ############################
 
+#Variables:
+my $reference_seq;
+my $bisulfite_seq;
 
 #Ask user for reference sequence(list filetype?)
+print "Enter the Filename for the reference sequence: ";
+$reference_seq = <STDIN>;
+chomp $reference_seq;
+unless( -e $reference_seq) {
+	print "File \"$reference_seq\" does not seem to exist\n";
+	exit;
+}
+
 #Ask user for bisulfite treated sequence
+print "Enter the Filename for the bisulfite treated sequence: ";
+$bisulfite_seq = <STDIN>;
+chomp $bisulfite_seq;
+unless( -e $bisulfite_seq) {
+	print "File \"$bisulfite_seq\" does not seem to exist\n";
+	exit;
+}
+
 
 #store files in variable
 #prepare files
