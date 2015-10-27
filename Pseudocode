@@ -39,21 +39,36 @@ print $seq1;
 print $seq2;
 
 my @seq1 = split('',$seq1);
-my @seq2 = split('',$seq2);	
-my @CGarea;
+my @seq2 = split('',$seq2);
+####Looking for areas of CC matching
+my @CCmatches;
 my $k=0;
 
 for (my $i=0; $i < scalar (@seq1); $i++)
 {
     if ($seq1[$i] eq "C" && $seq2[$i] eq "C")
-    {$CGarea[$k] = $i;$k++;
+    {$CCmatches[$k] = $i;$k++;
     }
 }
 
-my $CG = join (',',@CGarea);
+my $CC = join (',',@CCmatches);
 print "\n";
-print $CG;
+print $CC;
 print "\n";
+####Looking for regoins with TC matches
+my @TCmatches;
+my $z=0;
+
+for (my $y=0; $y < scalar(@seq1);$y++)
+{
+    if ($seq1[$y] eq "C" && $seq2[$y] eq "T")
+    {$TCmatches[$z] = $y; $z++;
+    }
+}
+my $TC = join (',',@TCmatches);
+print $TC;
+print "\n";
+
 
 
 #Search for CG regions
