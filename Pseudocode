@@ -10,6 +10,51 @@ use strict;
 #Ask user for reference sequence(list filetype?)
 #Ask user for bisulfite treated sequence
 
+#########I used loop but I need to fix using motifs. Also I created a fake file to read to be sure the code works 
+######before we try it on a larger file
+#!/usr/bin/perl                                                            
+
+use strict;
+use warnings;
+
+print "Enter the Reference Seqeunce:\n ";
+my $reference =<STDIN> ;
+print "Enter the Bisulfite Sequence: \n";
+my $BiSulSeq = <STDIN>;
+
+
+open (REFERENCE,$reference) || die "The refernece  file cannot be opened";
+my $seq1 = <REFERENCE>;
+close (REFERENCE);
+
+open (BISUL,$BiSulSeq) || die "This Bisulfite file cannot be opened";
+my $seq2 = <BISUL>;
+close (BISUL);
+
+print $seq1;
+print $seq2;
+
+my @seq1 = split('',$seq1);
+my @seq2 = split('',$seq2);
+my @CGarea;
+my $k=0;
+
+for (my $i=0; $i < length($seq1); $i++)
+{
+    for (my $j=0; $j<length($seq2); $j++)
+{
+    if ($seq1[$i] eq "C" && $seq2[$j] eq "C")
+        {$CGarea[$k] = $i;$k++;
+        }
+}
+}
+
+print "\n\n\n";
+print "$CGarea[1]";
+print "end \n\n\n";
+exit;
+
+####Need to delete printing step that are there to verify code is working correctly
 #store files in variable
 #prepare files
 	#remove whitespace
