@@ -9,6 +9,20 @@ use strict;
 
 #Ask user for reference sequence(list filetype?)
 #Ask user for bisulfite treated sequence
+print "Enter the Reference Seqeunce:\n ";
+my $reference =<STDIN> ;
+print "Enter the Bisulfite Sequence: \n";
+my $BiSulSeq = <STDIN>;
+
+
+open (REFERENCE,$reference) || die "The refernece  file cannot be opened";
+my $seqA = <REFERENCE>;
+close (REFERENCE);
+
+open (BISUL,$BiSulSeq) || die "This Bisulfite file cannot be opened";
+my $seqB = <BISUL>;
+close (BISUL);
+
 
 #store files in variable
 #prepare files
@@ -16,7 +30,16 @@ use strict;
 	#remove newlines
 	#join into one string
 	#explode string into an array
-	
+my $seq1=$seqA;
+my $seq2=$seqB;
+$seq1 =~ tr/acgt/ACGT/;
+$seq2 =~ tr/acgt/ACGT/;
+
+print $seq1;
+print $seq2;
+
+my @seq1 = split('',$seq1);
+my @seq2 = split('',$seq2);	
 #Search for CG regions
 	#foreach /C/ {
 	#	if( /GC/ | /CG/){}
